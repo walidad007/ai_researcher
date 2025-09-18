@@ -69,30 +69,30 @@ def parse_arxiv_xml(xml_content: str) -> dict:
     return {"entries": entries}
 
     
-print (search_arxiv_papers(topic= "Prompt Engineering", max_results = 5))
+# print (search_arxiv_papers(topic= "Prompt Engineering", max_results = 5))
 
         
 
 
-# Step3 - Convert the functionality into a tool
+# Step3: Convert the functionality into a tool
 from langchain_core.tools import tool
+
 
 @tool
 def arxiv_search(topic: str) -> list[dict]:
     """Search for recently uploaded arXiv papers
-    
+
     Args:
         topic: The topic to search for papers about
 
     Returns:
         List of papers with their metadata including title, authors, summary, etc.
     """
-
     print("ARXIV Agent called")
     print(f"Searching arXiv for papers about: {topic}")
     papers = search_arxiv_papers(topic)
     if len(papers) == 0:
         print(f"No papers found for topic: {topic}")
         raise ValueError(f"No papers found for topic: {topic}")
-    print(f"found {len(papers ['entries'])} papers about {topic}")
+    print(f"Found {len(papers['entries'])} papers about {topic}")
     return papers
