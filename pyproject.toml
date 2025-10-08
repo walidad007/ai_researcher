@@ -7,6 +7,9 @@ requires-python = ">=3.11"
 dependencies = [
     "langchain>=0.3.27",
     "langchain-core>=0.3.76",
+    "langchain-google-genai>=2.1.12",
+    "langgraph>=0.6.8",
     "pypdf2>=3.0.1",
+    "python-dotenv>=1.1.1",
     "requests>=2.32.5",
 ]
